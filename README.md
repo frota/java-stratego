@@ -1,0 +1,4 @@
+Stratego
+========
+
+Jogo Combate.
