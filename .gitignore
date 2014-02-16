@@ -1,9 +1,6 @@
 ### Java ###
 *.class
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
 # Package Files #
 *.jar
 *.war
@@ -13,18 +10,16 @@
 *.pydevproject
 .metadata
 .gradle
-bin/
 tmp/
 *.tmp
 *.bak
 *.swp
 *~.nib
 local.properties
-.settings/
 .loadpath
-
-# Locally stored "Eclipse launch configurations"
 *.launch
+
+/.settings
+/bin
 /.classpath
 /.project
-/README.md
