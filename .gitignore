@@ -1,5 +1,3 @@
-# Created by http://www.gitignore.io
-
 ### Java ###
 *.class
 
@@ -10,7 +8,6 @@
 *.jar
 *.war
 *.ear
-
 
 ### Eclipse ###
 *.pydevproject
@@ -26,20 +23,5 @@ local.properties
 .settings/
 .loadpath
 
-# External tool builders
-.externalToolBuilders/
-
 # Locally stored "Eclipse launch configurations"
 *.launch
-
-# CDT-specific
-.cproject
-
-# PDT-specific
-.buildpath
-
-# sbteclipse plugin 
-.target
-
-# TeXlipse plugin
-.texlipse
