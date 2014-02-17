@@ -1,25 +1,8 @@
-### Java ###
 *.class
-
-# Package Files #
 *.jar
 *.war
 *.ear
-
-### Eclipse ###
-*.pydevproject
-.metadata
-.gradle
-tmp/
-*.tmp
-*.bak
-*.swp
-*~.nib
-local.properties
-.loadpath
-*.launch
-
-/.settings
-/bin
-/.classpath
-/.project
+.settings
+bin
+.classpath
+.project
