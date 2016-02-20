@@ -21,12 +21,12 @@ public class Piece {
 	public static final int cBlue = 2;
 
 	public static final int pWater = 0; // lago
-	public static final int pSpy = 1; // espião 1
+	public static final int pSpy = 1; // espiÃ£o 1
 	public static final int pScout = 2; // soldado 2
 	public static final int pMiner = 3; // cabo-armeiro 3
 	public static final int pSergeant = 4; // sargento 4
 	public static final int pLieutenant = 5; // tenente 5
-	public static final int pCaptain = 6; // capitão 6
+	public static final int pCaptain = 6; // capitÃ£o 6
 	public static final int pMajor = 7; // major 7
 	public static final int pColonel = 8; // coronel 8
 	public static final int pGeneral = 9; // general 9
@@ -75,49 +75,49 @@ public class Piece {
 	}
 
 	/**
-	 * Retorna a força desta peça em relação à piece.
-	 * -1 para mais fraco. 0 para mesma força. 1 para mais forte.
+	 * Retorna a forÃ§a desta peÃ§a em relaÃ§Ã£o Ã  piece.
+	 * -1 para mais fraco. 0 para mesma forÃ§a. 1 para mais forte.
 	 * 2 para piece sendo bandeira.
-	 * 3 para comparação inválida (peças do mesmo time, ...).
-	 * 4 é caso impossível.
+	 * 3 para comparaÃ§Ã£o invÃ¡lida (peÃ§as do mesmo time, ...).
+	 * 4 Ã© caso impossÃ­vel.
 	 * 
-	 * @param piece Peça que esta instância irá se comparar.
-	 * @return A força desta peça.
+	 * @param piece PeÃ§a que esta instÃ¢ncia irÃ¡ se comparar.
+	 * @return A forÃ§a desta peÃ§a.
 	 */
 	public int strong(Piece piece) {
 		if (isMovablePiece()) {
-			if (isEnemy(piece)) { // sou peça móvel, ele é inimigo
+			if (isEnemy(piece)) { // sou peÃ§a mÃ³vel, ele Ã© inimigo
 				if (piece.getRank() == pFlag) {
 					return 2; // peguei bandeira
 				} else if (getRank() == pMiner && piece.getRank() == pBomb) {
 					return 1; // meu cabo desarmou bomba
 				} else if (getRank() == pSpy && piece.getRank() == pMarshal) {
-					return 1; // meu espião matou marechal
+					return 1; // meu espiÃ£o matou marechal
 				} else if (getRank() > piece.getRank()) {
 					return 1; // sou mais forte (geral)
 				} else if (getRank() == piece.getRank()) {
-					return 0; // mesma força
+					return 0; // mesma forÃ§a
 				} else if (getRank() < piece.getRank()) {
 					return -1; // sou mais fraco (geral)
 				} else {
 					return 4; // Caso inexistente?!?!
 				}
-			} else { // peças do mesmo time
+			} else { // peÃ§as do mesmo time
 				return 3;
 			}
-		} else { // se sou imóvel ou não sou peça
+		} else { // se sou imÃ³vel ou nÃ£o sou peÃ§a
 			return 3;
 		}
 	}
 
 	/**
-	 * (Método no lugar errado?) Calcula as jogadas possíveis da peça em x, y do
+	 * (MÃ©todo no lugar errado?) Calcula as jogadas possÃ­veis da peÃ§a em x, y do
 	 * tabuleiro board. (Override por Scout, Water, Bomb e Flag)
 	 * 
-	 * @param x Posição x do tabuleiro.
-	 * @param y Posição y do tabuleiro.
+	 * @param x PosiÃ§Ã£o x do tabuleiro.
+	 * @param y PosiÃ§Ã£o y do tabuleiro.
 	 * @param board O tabuleiro.
-	 * @return Vetor de inteiros indicandos as posições possíves para
+	 * @return Vetor de inteiros indicandos as posiÃ§Ãµes possÃ­ves para
 	 * transporte (1) e ataque (2).
 	 */
 	public int[][] moves(int x, int y, Piece[][] board) {
@@ -134,7 +134,7 @@ public class Piece {
 		if (posX >= 0 && posX < Board.sideSize && posY >= 0 && posY < Board.sideSize) {
 			if (board[posX][posY] == null) { // se casa vazia
 				moves[posX][posY] = 1;
-			} else if (isEnemy(board[posX][posY])) { // se peça inimiga
+			} else if (isEnemy(board[posX][posY])) { // se peÃ§a inimiga
 				moves[posX][posY] = 2;
 			}
 		}

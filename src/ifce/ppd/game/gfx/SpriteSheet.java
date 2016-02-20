@@ -8,7 +8,7 @@ import javax.imageio.ImageIO;
 /**
  * Carrega imagens (recursos) em formato de vetor de inteiros.
  * 
- * Alteração: apenas a remoção de funcionalidades não utilizadas.
+ * AlteraÃ§Ã£o: apenas a remoÃ§Ã£o de funcionalidades nÃ£o utilizadas.
  * 
  * @author The Cherno
  * @author Frota

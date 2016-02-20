@@ -8,13 +8,13 @@ import ifce.ppd.game.stratego.pieces.Piece;
 
 public class StrategoClient {
 
-	private int anim_1 = 0; // animaÁ„o de seleÁ„o
-	private int anim_2 = 0; // animaÁ„o de ataque
+	private int anim_1 = 0; // anima√ß√£o de sele√ß√£o
+	private int anim_2 = 0; // anima√ß√£o de ataque
 
-	private Piece piece1 = null; // animaÁ„o de ataque
+	private Piece piece1 = null; // anima√ß√£o de ataque
 	private int piece1x, piece1y;
 	private Piece piece2 = null;
-	private int piece2x, piece2y; // animaÁ„o de ataque
+	private int piece2x, piece2y; // anima√ß√£o de ataque
 
 	private int mouseOldB = -1;
 	private Sprite[] redSprites = {
@@ -75,7 +75,7 @@ public class StrategoClient {
 		int sqrY = 10 * Mouse.getY() / Sprite.map.Y_SIZE;
 
 		if (mouseOldB == -1 && Mouse.getButton() == 1) {
-			// bot„o esquerdo
+			// bot√£o esquerdo
 			if (stratego.getStatus() == Stratego.statusPreGame && onMouse != null) { // pre jogo
 				if (onMouse.getColor() == Piece.cRed && stratego.isRedField(sqrX, sqrY)) {
 					/* Colocando Vermelho no pre-jogo */
@@ -123,7 +123,7 @@ public class StrategoClient {
 							client.setLabelsText(stratego.getBlueCollected()); // atualizo inimigo
 							sel_X = -1;
 							sel_Y = -1;
-							client.setGameStatus("Advers·rio jogando!");
+							client.setGameStatus("Advers√°rio jogando!");
 						} else if (sel_X == sqrX && sel_Y == sqrY) {
 							sel_X = -1;
 							sel_Y = -1;
@@ -148,7 +148,7 @@ public class StrategoClient {
 							String comb = "COMB6" + myColor + "" + sel_X + "" + sel_Y
 									+ "" + sqrX + "" + sqrY;
 							client.getStreamPpd().sendCOMBX(comb);
-							client.setGameStatus("Advers·rio jogando!");
+							client.setGameStatus("Advers√°rio jogando!");
 							client.setLabelsText(stratego.getRedCollected()); // atualizo inimigo
 							sel_X = -1;
 							sel_Y = -1;
@@ -164,9 +164,9 @@ public class StrategoClient {
 				client.dispose();
 				System.exit(0);
 			}
-			// fim - bot„o esquerdo
-		} else if (mouseOldB == -1 && Mouse.getButton() == 3) { // bot„o direito
-			if (stratego.getStatus() == Stratego.statusPreGame) { // remoÁ„o de peÁas no pre-jogo
+			// fim - bot√£o esquerdo
+		} else if (mouseOldB == -1 && Mouse.getButton() == 3) { // bot√£o direito
+			if (stratego.getStatus() == Stratego.statusPreGame) { // remo√ß√£o de pe√ßas no pre-jogo
 				Piece piece = stratego.getPiece(sqrX, sqrY);
 				if (piece != null) {
 					if (piece.getColor() == Piece.cRed && myColor == Piece.cRed && !stratego.getReadyRed()) {
@@ -203,7 +203,7 @@ public class StrategoClient {
 
 	/**
 	 * Renderiza graficamente o jogo na tela screen.
-	 * @param screen Tela onde a renderizaÁ„o ser· executada.
+	 * @param screen Tela onde a renderiza√ß√£o ser√° executada.
 	 */
 	public void render(Screen screen) {
 		int sqrX = Mouse.getX() / 48; // pos x do mouse
@@ -211,7 +211,7 @@ public class StrategoClient {
 		sqrX = sqrX * 48;
 		sqrY = sqrY * 48;
 
-		anim_1++; // anima peÁa selecionada
+		anim_1++; // anima pe√ßa selecionada
 
 		screen.renderSprite(0, 0, Sprite.map, false); // renderiza campo
 
@@ -221,7 +221,7 @@ public class StrategoClient {
 
 		for (int y = 0; y < Board.sideSize; y++) {
 			for (int x = 0; x < Board.sideSize; x++) {
-				/* Renderizando peÁas */
+				/* Renderizando pe√ßas */
 				Piece piece = stratego.getPiece(x, y);
 				if (piece != null && piece.isAnyPiece()) {
 					if (myColor == Piece.cRed) {
@@ -271,7 +271,7 @@ public class StrategoClient {
 			anim_2 = 0;
 		}
 
-		if (onMouse != null) { /* renderiza peÁa no mouse */
+		if (onMouse != null) { /* renderiza pe√ßa no mouse */
 			int mx = Mouse.getX() - 24;
 			int my = Mouse.getY() - 24;
 			if (myColor == Piece.cRed) {
@@ -311,7 +311,7 @@ public class StrategoClient {
 
 		screen.renderSprite(sqrX, sqrY, Sprite.mouse, false); /* renderiza mouse */
 
-		if (stratego.getStatus() == Stratego.statusPosGame) { /* vitÛria ou derrota */
+		if (stratego.getStatus() == Stratego.statusPosGame) { /* vit√≥ria ou derrota */
 			if ((stratego.isRedTurn() && myColor == Piece.cRed)
 					|| (!stratego.isRedTurn() && myColor == Piece.cBlue)) {
 				screen.renderSprite(144, 180, Sprite.victory, false);

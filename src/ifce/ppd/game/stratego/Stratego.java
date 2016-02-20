@@ -17,14 +17,14 @@ public class Stratego {
 	public static final int statusPlaying = 2;
 	public static final int statusPosGame = 3;
 
-	/* Implementar m·ximo de 5 movimentos entre casas alternadas */
+	/* Implementar m√°ximo de 5 movimentos entre casas alternadas */
 //	public static final int maxMoves = 5;
 //	private int[] lastRedMove = {-1, -1, -1, -1};
 //	private int redMoveReps = 0;
 //	private int[] lastBlueMove = {-1, -1, -1, -1};
 //	private int blueMoveReps = 0;
 
-	/* N˙mero de peÁas de cada tipo, do espi„o ‡ bandeira, total de 40 */
+	/* N√∫mero de pe√ßas de cada tipo, do espi√£o √† bandeira, total de 40 */
 	public static final int[] numPieces = {1, 8, 5, 4, 4, 4, 3, 2, 1, 1, 6, 1};
 
 	private Board board;
@@ -32,7 +32,7 @@ public class Stratego {
 	private boolean redReady = false, blueReady = false;
 	private boolean redTurn = true;
 
-	/* PeÁas fora do jogo */
+	/* Pe√ßas fora do jogo */
 	private int[] redCollected = {1, 8, 5, 4, 4, 4, 3, 2, 1, 1, 6, 1}; // = numPieces
 	private int[] blueCollected = {1, 8, 5, 4, 4, 4, 3, 2, 1, 1, 6, 1}; // = numPieces
 
@@ -42,7 +42,7 @@ public class Stratego {
 	}
 
 	/**
-	 * Movimentos possÌveis da peÁa em x, y.
+	 * Movimentos poss√≠veis da pe√ßa em x, y.
 	 * @param x
 	 * @param y
 	 * @return Vetor de inteiros com 0's, 1's (transporte) e 2's (ataques).
@@ -51,13 +51,13 @@ public class Stratego {
 		int[][] moves = new int[Board.sideSize][Board.sideSize];
 		Piece p = board.getPiece(x, y);
 		moves = p.moves(x, y, board.getPieces());
-		// histÛrico deve apagar um aqui (baseado em >=5 e cor da peÁa em x, y)
+		// hist√≥rico deve apagar um aqui (baseado em >=5 e cor da pe√ßa em x, y)
 		return moves;
 	}
 
 	/**
 	 * 
-	 * @return … o turno do vermelho?
+	 * @return √â o turno do vermelho?
 	 */
 	public boolean isRedTurn() {
 		return redTurn;
@@ -146,14 +146,14 @@ public class Stratego {
 	}
 
 	/**
-	 * Realiza uma jogada, dadas duas posiÁıes do tabuleiro (origem e destino),
-	 * se for a vez do jogador em quest„o.
+	 * Realiza uma jogada, dadas duas posi√ß√µes do tabuleiro (origem e destino),
+	 * se for a vez do jogador em quest√£o.
 	 * 
 	 * @param color Cor que identifica o jogador.
-	 * @param x PosiÁ„o inicial x da peÁa a ser movida.
-	 * @param y PosiÁ„o inicial y da peÁa a ser movida.
-	 * @param mx PosiÁ„o de destino x da peÁa a ser movida.
-	 * @param my PosiÁ„o de destino y da peÁa a ser movida.
+	 * @param x Posi√ß√£o inicial x da pe√ßa a ser movida.
+	 * @param y Posi√ß√£o inicial y da pe√ßa a ser movida.
+	 * @param mx Posi√ß√£o de destino x da pe√ßa a ser movida.
+	 * @param my Posi√ß√£o de destino y da pe√ßa a ser movida.
 	 * @return Se a bandeira foi capturada na jogada.
 	 */
 	public boolean makeAMove(int color, int x, int y, int mx, int my) { // de x,y -> mx,my
@@ -187,11 +187,11 @@ public class Stratego {
 					gotFlag = true;
 					status = statusPosGame; // redTurn indica vencedor
 				} else {
-					System.out.println("RED: ComparaÁ„o inv·lida de peÁas! st = " + st);
+					System.out.println("RED: Compara√ß√£o inv√°lida de pe√ßas! st = " + st);
 					redTurn = true;
 				}
 			} else if (aux == 0) { // nada
-				System.out.println("RED: MovimentaÁ„o impossÌvel! aux = 0");
+				System.out.println("RED: Movimenta√ß√£o imposs√≠vel! aux = 0");
 			}
 			// fim - de analise de jogada vermelha
 
@@ -224,18 +224,18 @@ public class Stratego {
 					gotFlag = true;
 					status = statusPosGame; // redTurn indica vencedor
 				} else { // 3 4
-					System.out.println("BLUE: ComparaÁ„o inv·lida de peÁas! st = " + st);
+					System.out.println("BLUE: Compara√ß√£o inv√°lida de pe√ßas! st = " + st);
 					redTurn = false;
 				}
 			} else if (aux == 0) {
-				System.out.println("BLUE: MovimentaÁ„o impossÌvel! aux = 0");
+				System.out.println("BLUE: Movimenta√ß√£o imposs√≠vel! aux = 0");
 			}
 			// fim - de analise de jogada azul
 		}
 		return gotFlag;
 	}
 
-	public boolean placePiece(Piece piece, int x, int y) { // colocando peÁa no pre-jogo
+	public boolean placePiece(Piece piece, int x, int y) { // colocando pe√ßa no pre-jogo
 		if (status == statusPreGame) {
 			if (board.getPiece(x, y) == null) { // lugar vazio
 				int id = piece.getRank();
@@ -261,17 +261,17 @@ public class Stratego {
 
 	public boolean removePiece(int x, int y) { // tirando peca no pre-jogo
 		if (status == statusPreGame) {
-			if (board.getPiece(x, y).isAnyPiece()) { // tem peÁa (red ou blue) no lugar
+			if (board.getPiece(x, y).isAnyPiece()) { // tem pe√ßa (red ou blue) no lugar
 				int id = board.getPiece(x, y).getRank();
 				int co = board.getPiece(x, y).getColor();
 
-				if (co == teamRed) { // removendo peÁa vermelha
+				if (co == teamRed) { // removendo pe√ßa vermelha
 					if (redCollected[id - Piece.pSpy] < numPieces[id - Piece.pSpy]) {
 						board.removePiece(x, y);
 						redCollected[id - Piece.pSpy]++;
 						return true;
 					}
-				} else if (co == teamBlue) { // removendo peÁa azul
+				} else if (co == teamBlue) { // removendo pe√ßa azul
 					if (blueCollected[id - Piece.pSpy] < numPieces[id - Piece.pSpy]) {
 						board.removePiece(x, y);
 						blueCollected[id - Piece.pSpy]++;

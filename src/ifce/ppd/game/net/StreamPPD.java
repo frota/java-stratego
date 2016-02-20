@@ -41,7 +41,7 @@ public class StreamPPD implements Runnable {
 					serverSocket = new ServerSocket(waitingPort);
 					socket = serverSocket.accept();
 					client.writeMessage(3, "INFO: \"" + socket.getInetAddress() + ":" + socket.getPort() + "\" se conectou.");
-					client.setGameStatus("Distribua suas peças!");
+					client.setGameStatus("Distribua suas peÃ§as!");
 					myColor = randomPlayerID();
 					client.getStrategoC().setColor(myColor);
 					if (myColor == Piece.cRed) {
@@ -56,17 +56,17 @@ public class StreamPPD implements Runnable {
 					dataOut = new DataOutputStream(socket.getOutputStream());
 					dataOut.writeUTF("COMB1" + client.getMyName());
 					if (myColor == Piece.cRed) {
-						client.writeMessage(2, "INFO: Você foi sorteado como <font color=#ff0000>1º player</font>!");
+						client.writeMessage(2, "INFO: VocÃª foi sorteado como <font color=#ff0000>1Âº player</font>!");
 					} else if (myColor == Piece.cBlue) {
-						client.writeMessage(2, "INFO: Você foi sorteado como <font color=#0000ff>2º player</font>!");
+						client.writeMessage(2, "INFO: VocÃª foi sorteado como <font color=#0000ff>2Âº player</font>!");
 					} else {
-						client.writeMessage(2, "ERRO: Você foi sorteado como <font color=#339966>0º player</font>!");
+						client.writeMessage(2, "ERRO: VocÃª foi sorteado como <font color=#339966>0Âº player</font>!");
 					}
 					client.setPieceButtonsEnabled(true);
 
 					running = true;
 				} catch (IOException e) {
-					client.writeMessage(1, "ERRO: Porta já usada.");
+					client.writeMessage(1, "ERRO: Porta jÃ¡ usada.");
 					client.setPanelConnectEnabled(true);
 					running = false;
 				}
@@ -80,7 +80,7 @@ public class StreamPPD implements Runnable {
 				} catch (IOException e) {
 					running = false;
 					waiting = false;
-					client.writeMessage(1, "ERRO: O adversário se desconectou.");
+					client.writeMessage(1, "ERRO: O adversÃ¡rio se desconectou.");
 					//System.exit(0);
 				}
 			}
@@ -90,16 +90,16 @@ public class StreamPPD implements Runnable {
 	public synchronized void initConnection(String ip, int port) { // entrando em um ip:port
 		waiting = false;
 		try {
-			socket = new Socket(ip, port); // se conectou, começa a rodar
-			client.writeMessage(3, "INFO: Conectado à \"" + socket.getInetAddress() + ":" + socket.getPort() + "\".");
+			socket = new Socket(ip, port); // se conectou, comeÃ§a a rodar
+			client.writeMessage(3, "INFO: Conectado Ã  \"" + socket.getInetAddress() + ":" + socket.getPort() + "\".");
 			dataOut = new DataOutputStream(socket.getOutputStream());
 			dataOut.writeUTF("COMB1" + client.getMyName());
 			client.setPieceButtonsEnabled(true);
-			client.setGameStatus("Distribua suas peças!");
+			client.setGameStatus("Distribua suas peÃ§as!");
 			running = true;
 			// CONECTEI AO SERVER
 		} catch (Exception e) {
-			client.writeMessage(1, "ERRO: Não foi possível conectar.");
+			client.writeMessage(1, "ERRO: NÃ£o foi possÃ­vel conectar.");
 			client.setPanelConnectEnabled(true);
 			running = false;
 		}
@@ -136,9 +136,9 @@ public class StreamPPD implements Runnable {
 			if (tipo.equals("COMB0")) {
 				// mensagem no chat
 				if (client.getStrategoC().getColor() == Piece.cRed) {
-					client.writePlayerMessage(Piece.cBlue, client.getItsName(), msg); // ele é blue
+					client.writePlayerMessage(Piece.cBlue, client.getItsName(), msg); // ele Ã© blue
 				} else if (client.getStrategoC().getColor() == Piece.cBlue) {
-					client.writePlayerMessage(Piece.cRed, client.getItsName(), msg); // ele é red
+					client.writePlayerMessage(Piece.cRed, client.getItsName(), msg); // ele Ã© red
 				} else {
 					client.writePlayerMessage(Piece.cNeutral, client.getItsName(), msg); // eu sou nada
 				}
@@ -151,16 +151,16 @@ public class StreamPPD implements Runnable {
 					client.setItsName("[noname]");
 				}
 				if (client.getStrategoC().getColor() == Piece.cRed) {
-					msg = "<font color=#0000ff>" + msg; // ele é blue
+					msg = "<font color=#0000ff>" + msg; // ele Ã© blue
 				} else if (client.getStrategoC().getColor() == Piece.cBlue) {
-					msg = "<font color=#ff0000>" + msg; // ele é red
+					msg = "<font color=#ff0000>" + msg; // ele Ã© red
 				} else {
 					msg = "<font color=#339966>" + msg;
 				}
 				client.setPlayerStatus("<html>Jogando com " + msg + "</font>!</html>");
 				// fim - nome do inimigo
 			} else if (tipo.equals("COMB2")) {
-				// determinação de meu id pelo host
+				// determinaÃ§Ã£o de meu id pelo host
 				int myColor;
 				if (msg.length() >= 1) {
 					try {
@@ -175,14 +175,14 @@ public class StreamPPD implements Runnable {
 				client.getStrategoC().setColor(myColor);
 				client.getStrategoC().setPlaying(true);
 				if (myColor == Piece.cRed) {
-					client.writeMessage(2, "INFO: Você foi sorteado como <font color=#ff0000>1º player</font>!");
+					client.writeMessage(2, "INFO: VocÃª foi sorteado como <font color=#ff0000>1Âº player</font>!");
 				} else if (myColor == Piece.cBlue) {
-					client.writeMessage(2, "INFO: Você foi sorteado como <font color=#0000ff>2º player</font>!");
+					client.writeMessage(2, "INFO: VocÃª foi sorteado como <font color=#0000ff>2Âº player</font>!");
 				} else {
-					client.writeMessage(2, "ERRO: Você foi sorteado como <font color=#339966>0º player</font>!");
+					client.writeMessage(2, "ERRO: VocÃª foi sorteado como <font color=#339966>0Âº player</font>!");
 				}
 				client.setPieceButtonsEnabled(true);
-				// fim - determinação de meu id pelo host
+				// fim - determinaÃ§Ã£o de meu id pelo host
 			} else if (tipo.equals("COMB3")) {
 				// pondo peca no pre jogo (inimigo)
 				if (msg.length() >= 4) {
@@ -219,14 +219,14 @@ public class StreamPPD implements Runnable {
 					if (b) { // todos prontos
 						client.setGameStatus("<html><b>Sua vez de jogar!</b></html>");
 					} else { // 
-						client.setGameStatus("Distribua suas peças!");
+						client.setGameStatus("Distribua suas peÃ§as!");
 					}
 				} else if (client.getStrategoC().getColor() == Piece.cBlue) { // sou blue
 					b = client.getStrategoC().getStratego().setReadyRed();
 					if (b) { // todos prontos
-						client.setGameStatus("Adversário jogando!");
+						client.setGameStatus("AdversÃ¡rio jogando!");
 					} else { // 
-						client.setGameStatus("Distribua suas peças!");
+						client.setGameStatus("Distribua suas peÃ§as!");
 					}
 				}
 				// fim - recebi pronto

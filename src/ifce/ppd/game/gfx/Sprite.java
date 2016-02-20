@@ -1,9 +1,9 @@
 package ifce.ppd.game.gfx;
 
 /**
- * Trabalha 'SpriteSheet's possibilitando dividÌ-los em pedaÁos.
+ * Trabalha 'SpriteSheet's possibilitando divid√≠-los em peda√ßos.
  * 
- * AlteraÁ„o: apenas a remoÁ„o de funcionalidades n„o utilizadas e adequaÁ„o ao
+ * Altera√ß√£o: apenas a remo√ß√£o de funcionalidades n√£o utilizadas e adequa√ß√£o ao
  * jogo Combate.
  * 
  * @author The Cherno
@@ -18,7 +18,7 @@ public class Sprite {
 	private int[] pixels;
 	private SpriteSheet sheet;
 
-	/* Texto DERROTA e VIT”RIA */
+	/* Texto DERROTA e VIT√ìRIA */
 	public static Sprite victory = new Sprite(192, 96, 0, 1, SpriteSheet.text);
 	public static Sprite defeat = new Sprite(192, 96, 0, 0, SpriteSheet.text);
 	
@@ -28,7 +28,7 @@ public class Sprite {
 			SpriteSheet.map.getXSize(),
 			SpriteSheet.map.getYSize(), 0, 0, SpriteSheet.map);
 
-	/* PeÁas vermelhas */
+	/* Pe√ßas vermelhas */
 	public static Sprite red_01 = new Sprite(48, 48, 0, 0, SpriteSheet.pieces);
 	public static Sprite red_02 = new Sprite(48, 48, 1, 0, SpriteSheet.pieces);
 	public static Sprite red_03 = new Sprite(48, 48, 2, 0, SpriteSheet.pieces);
@@ -43,7 +43,7 @@ public class Sprite {
 	public static Sprite red_fl = new Sprite(48, 48, 5, 1, SpriteSheet.pieces);
 	public static Sprite red_unknown = new Sprite(48, 48, 7, 2, SpriteSheet.pieces);
 
-	/* PeÁas azuis */
+	/* Pe√ßas azuis */
 	public static Sprite blue_01 = new Sprite(48, 48, 0, 2, SpriteSheet.pieces);
 	public static Sprite blue_02 = new Sprite(48, 48, 1, 2, SpriteSheet.pieces);
 	public static Sprite blue_03 = new Sprite(48, 48, 2, 2, SpriteSheet.pieces);
@@ -58,23 +58,23 @@ public class Sprite {
 	public static Sprite blue_fl = new Sprite(48, 48, 5, 3, SpriteSheet.pieces);
 	public static Sprite blue_unknown = new Sprite(48, 48, 7, 3, SpriteSheet.pieces);
 
-	/* PeÁas que indicam erros */
+	/* Pe√ßas que indicam erros */
 	public static Sprite err_001 = new Sprite(48, 48, 6, 0, SpriteSheet.pieces);
 	public static Sprite err_002 = new Sprite(48, 48, 6, 1, SpriteSheet.pieces);
 	public static Sprite err_003 = new Sprite(48, 48, 6, 2, SpriteSheet.pieces);
 	public static Sprite err_004 = new Sprite(48, 48, 6, 3, SpriteSheet.pieces);
 
-	/* Mouse, movimentaÁ„o e ataque */
+	/* Mouse, movimenta√ß√£o e ataque */
 	public static Sprite mouse = new Sprite(48, 48, 7, 0, SpriteSheet.pieces);
 	public static Sprite move = new Sprite(48, 48, 8, 0, SpriteSheet.pieces);
 	public static Sprite attack = new Sprite(48, 48, 9, 0, SpriteSheet.pieces);
 
-	/* SeleÁ„o */
+	/* Sele√ß√£o */
 	public static Sprite selected_1 = new Sprite(48, 48, 7, 1, SpriteSheet.pieces);
 	public static Sprite selected_2 = new Sprite(48, 48, 8, 1, SpriteSheet.pieces);
 	public static Sprite selected_3 = new Sprite(48, 48, 9, 1, SpriteSheet.pieces);
 
-	/* Lago e vazio - n„o devem ser usados */
+	/* Lago e vazio - n√£o devem ser usados */
 	public static Sprite lake_ = new Sprite(48, 48, 8, 2, SpriteSheet.pieces);
 	public static Sprite void_ = new Sprite(48, 48, 8, 3, SpriteSheet.pieces);
 

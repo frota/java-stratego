@@ -67,7 +67,7 @@ public class ClientWindow extends JFrame implements Runnable {
 	private boolean running = false;
 	private Thread thread;
 
-	private StreamPPD stream; // Trata da conex„o entre os clientes
+	private StreamPPD stream; // Trata da conex√£o entre os clientes
 	private StrategoClient stratego; // Trata de desenhar um Stratego
 
 	private JPanel contentPane;
@@ -78,7 +78,7 @@ public class ClientWindow extends JFrame implements Runnable {
 	private JTextField txt_IP1, txt_IP2;
 	private JLabel lbl_Port1, lbl_Port2;
 	private JTextField txt_Port1, txt_Port2;
-	private JButton btn_GameInit1, btn_GameInit2; // botıes iniciar
+	private JButton btn_GameInit1, btn_GameInit2; // bot√µes iniciar
 	private JSeparator sep_Conn;
 	private JLabel lbl_GameStatus;
 	private JLabel lbl_PlayerStatus;
@@ -89,12 +89,12 @@ public class ClientWindow extends JFrame implements Runnable {
 	private JPanel panelGame;
 	private JPanel panelPieces;
 	private JButton btn_P_01, btn_P_02, btn_P_03, btn_P_04, btn_P_05, btn_P_06, btn_P_07,
-			btn_P_08, btn_P_09, btn_P_10, btn_P_Bomb, btn_P_Flag; // botıes peÁas
+			btn_P_08, btn_P_09, btn_P_10, btn_P_Bomb, btn_P_Flag; // bot√µes pe√ßas
 	private JPanel panelInfo;
-	private JButton btn_Ready; // bot„o pronto
-	private JButton btn_GiveUp; // bot„o desistir
-	private JButton btn_About; // bot„o sobre
-	private JButton btn_Help; // bot„o ajuda
+	private JButton btn_Ready; // bot√£o pronto
+	private JButton btn_GiveUp; // bot√£o desistir
+	private JButton btn_About; // bot√£o sobre
+	private JButton btn_Help; // bot√£o ajuda
 	private JSeparator sep_Game1, sep_Game2;
 	private JLabel lbl_EnemyPieces;
 	private JLabel lbl_P_01, lbl_P_02, lbl_P_03, lbl_P_04, lbl_P_05, lbl_P_06, lbl_P_07,
@@ -136,26 +136,26 @@ public class ClientWindow extends JFrame implements Runnable {
 		canvas.addMouseListener(mouse);
 		canvas.addMouseMotionListener(mouse);
 
-		/* Eventos - Botıes... */
+		/* Eventos - Bot√µes... */
 		btn_GameInit1.addActionListener(new ActionListener() { // Iniciando partida
 			public void actionPerformed(ActionEvent arg0) {
 				try {
 					clientPort = Integer.parseInt(txt_Port1.getText());
 				} catch (Exception e) {
 					clientPort = defaultPort;
-					writeMessage(3, "INFO: Formato inv·lido, usando a porta \"" + clientPort + "\".");
+					writeMessage(3, "INFO: Formato inv√°lido, usando a porta \"" + clientPort + "\".");
 				}
 				if (clientPort < 1024 || clientPort > 65535) {
 					clientPort = defaultPort;
-					writeMessage(3, "INFO: Valor inv·lido, usando a porta \"" + clientPort + "\".");
+					writeMessage(3, "INFO: Valor inv√°lido, usando a porta \"" + clientPort + "\".");
 				}
-				txt_Port1.setText(clientPort + ""); // tenho meu ip:porta atÈ aqui
+				txt_Port1.setText(clientPort + ""); // tenho meu ip:porta at√© aqui
 
 				setPanelConnectEnabled(false);
 				txt_IP2.setText("");
 				txt_Port2.setText(""); // desativando panelConnect
 
-				writeMessage(3, "INFO: Aguardando conex„o em \"" + clientIp + ":" + clientPort + "\".");
+				writeMessage(3, "INFO: Aguardando conex√£o em \"" + clientIp + ":" + clientPort + "\".");
 				lbl_PlayerStatus.setText("Aguardando segundo jogador conectar!");
 				stream.waitConnection(clientPort);
 
@@ -167,19 +167,19 @@ public class ClientWindow extends JFrame implements Runnable {
 				if (serverIp.length() <= 0 || serverIp.length() > 35) {
 					serverIp = "localhost";
 					txt_IP2.setText(serverIp);
-					writeMessage(3, "INFO: Formato inv·lido, usando o IP \"" + serverIp + "\".");
+					writeMessage(3, "INFO: Formato inv√°lido, usando o IP \"" + serverIp + "\".");
 				}
 				try {
 					serverPort = Integer.parseInt(txt_Port2.getText());
 				} catch (Exception e) {
 					serverPort = defaultPort;
-					writeMessage(3, "INFO: Formato inv·lido, usando a porta \"" + serverPort + "\".");
+					writeMessage(3, "INFO: Formato inv√°lido, usando a porta \"" + serverPort + "\".");
 				}
 				if (serverPort < 1024 || serverPort > 65535) {
 					serverPort = defaultPort;
-					writeMessage(3, "INFO: Valor inv·lido, usando a porta \"" + serverPort + "\".");
+					writeMessage(3, "INFO: Valor inv√°lido, usando a porta \"" + serverPort + "\".");
 				}
-				txt_Port2.setText(serverPort + ""); // tenho SEU ip:porta atÈ aqui
+				txt_Port2.setText(serverPort + ""); // tenho SEU ip:porta at√© aqui
 
 				setPanelConnectEnabled(false);
 				txt_Port1.setText(""); // desativando panelConnect
@@ -266,15 +266,15 @@ public class ClientWindow extends JFrame implements Runnable {
 					if (b) {
 						setGameStatus("<html><b>Sua vez de jogar!</b></html>");
 					} else {
-						setGameStatus("Aguardando advers·rio!");
+						setGameStatus("Aguardando advers√°rio!");
 					}
 					stream.sendCOMBX("COMB5");
 				} else if (stratego.getColor() == Piece.cBlue) { // sou blue?
 					b = stratego.getStratego().setReadyBlue();
 					if (b) {
-						setGameStatus("Advers·rio jogando!");
+						setGameStatus("Advers√°rio jogando!");
 					} else {
-						setGameStatus("Aguardando advers·rio!");
+						setGameStatus("Aguardando advers√°rio!");
 					}
 					stream.sendCOMBX("COMB5");
 				}
@@ -286,62 +286,62 @@ public class ClientWindow extends JFrame implements Runnable {
 			}
 		});
 
-		btn_P_01.addActionListener(new ActionListener() { // PeÁas
+		btn_P_01.addActionListener(new ActionListener() { // Pe√ßas
 			public void actionPerformed(ActionEvent arg0) {
 				stratego.setOnMouse(new Spy(stratego.getColor()));
 			}
 		});
-		btn_P_02.addActionListener(new ActionListener() { // PeÁas
+		btn_P_02.addActionListener(new ActionListener() { // Pe√ßas
 			public void actionPerformed(ActionEvent arg0) {
 				stratego.setOnMouse(new Scout(stratego.getColor()));
 			}
 		});
-		btn_P_03.addActionListener(new ActionListener() { // PeÁas
+		btn_P_03.addActionListener(new ActionListener() { // Pe√ßas
 			public void actionPerformed(ActionEvent arg0) {
 				stratego.setOnMouse(new Miner(stratego.getColor()));
 			}
 		});
-		btn_P_04.addActionListener(new ActionListener() { // PeÁas
+		btn_P_04.addActionListener(new ActionListener() { // Pe√ßas
 			public void actionPerformed(ActionEvent arg0) {
 				stratego.setOnMouse(new Sergeant(stratego.getColor()));
 			}
 		});
-		btn_P_05.addActionListener(new ActionListener() { // PeÁas
+		btn_P_05.addActionListener(new ActionListener() { // Pe√ßas
 			public void actionPerformed(ActionEvent arg0) {
 				stratego.setOnMouse(new Lieutenant(stratego.getColor()));
 			}
 		});
-		btn_P_06.addActionListener(new ActionListener() { // PeÁas
+		btn_P_06.addActionListener(new ActionListener() { // Pe√ßas
 			public void actionPerformed(ActionEvent arg0) {
 				stratego.setOnMouse(new Captain(stratego.getColor()));
 			}
 		});
-		btn_P_07.addActionListener(new ActionListener() { // PeÁas
+		btn_P_07.addActionListener(new ActionListener() { // Pe√ßas
 			public void actionPerformed(ActionEvent arg0) {
 				stratego.setOnMouse(new Major(stratego.getColor()));
 			}
 		});
-		btn_P_08.addActionListener(new ActionListener() { // PeÁas
+		btn_P_08.addActionListener(new ActionListener() { // Pe√ßas
 			public void actionPerformed(ActionEvent arg0) {
 				stratego.setOnMouse(new Colonel(stratego.getColor()));
 			}
 		});
-		btn_P_09.addActionListener(new ActionListener() { // PeÁas
+		btn_P_09.addActionListener(new ActionListener() { // Pe√ßas
 			public void actionPerformed(ActionEvent arg0) {
 				stratego.setOnMouse(new General(stratego.getColor()));
 			}
 		});
-		btn_P_10.addActionListener(new ActionListener() { // PeÁas
+		btn_P_10.addActionListener(new ActionListener() { // Pe√ßas
 			public void actionPerformed(ActionEvent arg0) {
 				stratego.setOnMouse(new Marshal(stratego.getColor()));
 			}
 		});
-		btn_P_Bomb.addActionListener(new ActionListener() { // PeÁas
+		btn_P_Bomb.addActionListener(new ActionListener() { // Pe√ßas
 			public void actionPerformed(ActionEvent arg0) {
 				stratego.setOnMouse(new Bomb(stratego.getColor()));
 			}
 		});
-		btn_P_Flag.addActionListener(new ActionListener() { // PeÁas
+		btn_P_Flag.addActionListener(new ActionListener() { // Pe√ßas
 			public void actionPerformed(ActionEvent arg0) {
 				stratego.setOnMouse(new Flag(stratego.getColor()));
 			}
@@ -349,12 +349,12 @@ public class ClientWindow extends JFrame implements Runnable {
 
 		btn_Help.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				JOptionPane.showMessageDialog(null, "N„o utilizado!", "Ajuda...", 1);
+				JOptionPane.showMessageDialog(null, "N√£o utilizado!", "Ajuda...", 1);
 			}
 		});
 		btn_About.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				JOptionPane.showMessageDialog(null, "N„o utilizado!", "Sobre...", 1);
+				JOptionPane.showMessageDialog(null, "N√£o utilizado!", "Sobre...", 1);
 			}
 		});
 	}
@@ -532,7 +532,7 @@ public class ClientWindow extends JFrame implements Runnable {
 		} else if (color == 1) {
 			col = "<font color=#ff6600>"; // erro
 		} else if (color == 3) {
-			col = "<font color=#991d99>"; // informaÁ„o
+			col = "<font color=#991d99>"; // informa√ß√£o
 		} else {
 			col = "<font color=#000000>"; // preto
 		}

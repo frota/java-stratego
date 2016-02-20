@@ -10,7 +10,7 @@ public class Flag extends Piece {
 	}
 
 	public int[][] moves(int x, int y, Piece[][] board) {
-		return (new int[Board.sideSize][Board.sideSize]); // bandeira n„o joga
+		return (new int[Board.sideSize][Board.sideSize]); // bandeira n√£o joga
 	}
 
 }

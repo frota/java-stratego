@@ -71,11 +71,11 @@ public class LoginWindow extends JFrame {
 				playerName = tf_Name.getText();
 				int nl = playerName.length();
 				if (nl <= 0) {
-					lbl_Status.setText("VocÍ deve inserir um nome!!!");
+					lbl_Status.setText("Voc√™ deve inserir um nome!!!");
 				} else if (nl > maxNameLength) {
 					lbl_Status.setText("<html>Nome muito grande!!!<br>" +
 							"Possui " + nl + " caracteres de no<br>" +
-							"m·ximo " + maxNameLength + "!</html>");
+							"m√°ximo " + maxNameLength + "!</html>");
 				} else {
 					lbl_Status.setText("Logando...");
 					dispose(); // fecha login e "abre" cliente

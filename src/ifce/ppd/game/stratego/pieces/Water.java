@@ -10,7 +10,7 @@ public class Water extends Piece { // ZERO
 	}
 
 	public int[][] moves(int x, int y, Piece[][] board) {
-		return (new int[Board.sideSize][Board.sideSize]); // lago n„o joga
+		return (new int[Board.sideSize][Board.sideSize]); // lago n√£o joga
 	}
 
 }

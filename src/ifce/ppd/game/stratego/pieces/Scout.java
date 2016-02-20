@@ -10,13 +10,13 @@ public class Scout extends Piece { // 02
 	}
 
 	public int[][] moves(int x, int y, Piece[][] board) {
-		int[][] moves = new int[Board.sideSize][Board.sideSize]; // t· zerado
+		int[][] moves = new int[Board.sideSize][Board.sideSize]; // t√° zerado
 		int posX, posY;
 		int i = 1;
 		boolean north = true,
 				east = true,
 				south = true,
-				west = true; // indicam se n„o encontrei obst·culos na direÁ„o referida
+				west = true; // indicam se n√£o encontrei obst√°culos na dire√ß√£o referida
 
 		Piece p = board[x][y];
 		if (p == null) {
@@ -31,8 +31,8 @@ public class Scout extends Piece { // 02
 					&& north) {
 				if (board[posX][posY] == null) { // se casa vazia
 					moves[posX][posY] = 1;
-				} else if (isEnemy(board[posX][posY])) { // se peÁa inimiga
-					if (i <= 2) { // a 2 ou 1 de dist‚ncia
+				} else if (isEnemy(board[posX][posY])) { // se pe√ßa inimiga
+					if (i <= 2) { // a 2 ou 1 de dist√¢ncia
 						moves[posX][posY] = 2;
 					}
 					north = false;

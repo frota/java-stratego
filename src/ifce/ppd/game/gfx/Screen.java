@@ -2,9 +2,9 @@ package ifce.ppd.game.gfx;
 
 /**
  * Permite usar um vetor de inteiros como uma tela de desenho, onde se pode
- * usar instâncias de Sprite.
+ * usar instÃ¢ncias de Sprite.
  * 
- * Alteração: apenas a remoção de funcionalidades não utilizadas.
+ * AlteraÃ§Ã£o: apenas a remoÃ§Ã£o de funcionalidades nÃ£o utilizadas.
  * 
  * @author The Cherno
  * @author Frota
@@ -30,9 +30,9 @@ public class Screen {
 	}
 
 	/**
-	 * Renderiza um sprite na posição (xp, yp) desejada deste Screen.
-	 * @param xp Início da renderização de sprite.
-	 * @param yp Início da renderização de sprite.
+	 * Renderiza um sprite na posiÃ§Ã£o (xp, yp) desejada deste Screen.
+	 * @param xp InÃ­cio da renderizaÃ§Ã£o de sprite.
+	 * @param yp InÃ­cio da renderizaÃ§Ã£o de sprite.
 	 * @param sprite Sprite a ser renderizado.
 	 */
 	public void renderSprite(int xp, int yp, Sprite sprite, boolean fixed) {
