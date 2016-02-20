@@ -1,4 +1,4 @@
-Stratego
-========
+Stratego Game
+=============
 
-Jogo Combate.
+Stratego Game.
